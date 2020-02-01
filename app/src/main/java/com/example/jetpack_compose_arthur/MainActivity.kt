@@ -15,25 +15,27 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MaterialTheme {
-                Greeting()
-            }
+            Greeting()
         }
     }
 }
 
 @Composable
 fun Greeting() {
+    MaterialTheme {
+        RecipeList(defaultRecipes)
+    }
+    /*
     Column {
         Text(text = "Hello Mundo!", style = TextStyle(color = Color.Blue))
         Text(text = "Hello Cruel Mundo!", style = TextStyle(color = Color.Blue))
         Text(text = "Hello Cruel Vida!", style = TextStyle(color = Color.Blue))
     }
+     */
 }
 
 @Preview
 @Composable
 fun DefaultPreview() {
-    MaterialTheme
     Greeting()
 }
