@@ -27,7 +27,6 @@ fun Greeting(name: String) {
 @Preview
 @Composable
 fun DefaultPreview() {
-    MaterialTheme {
+    MaterialTheme
         Greeting("Android")
     }
-}
