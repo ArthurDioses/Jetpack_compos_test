@@ -10,6 +10,7 @@ import androidx.ui.foundation.shape.corner.RoundedCornerShape
 import androidx.ui.graphics.Color
 import androidx.ui.layout.Column
 import androidx.ui.layout.Container
+import androidx.ui.layout.Spacing
 import androidx.ui.material.MaterialTheme
 import androidx.ui.material.surface.Surface
 import androidx.ui.res.imageResource
@@ -33,17 +34,18 @@ fun RecipeCard(recipe: Recipe) {
      */
     Surface(
         shape = RoundedCornerShape(8.dp),
-        elevation = 8.dp,
-         color = Color.White
+        elevation = 8.dp
     ) {
         val image = +imageResource(recipe.imageResource)
         Column {
             Container(expanded = true, height = 144.dp) {
                 DrawImage(image = image)
             }
-            Text(recipe.tittle)
-            for (ingredient in recipe.ingredients) {
-                Text("º $ingredient")
+            Column(modifier = Spacing(16.dp)) {
+                Text(recipe.tittle, style = (+MaterialTheme.typography()).h6)
+                for (ingredient in recipe.ingredients) {
+                    Text("º $ingredient")
+                }
             }
         }
     }

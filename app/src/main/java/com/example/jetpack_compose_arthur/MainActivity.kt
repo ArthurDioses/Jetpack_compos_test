@@ -7,7 +7,9 @@ import androidx.ui.core.Text
 import androidx.ui.core.setContent
 import androidx.ui.graphics.Color
 import androidx.ui.layout.Column
+import androidx.ui.layout.FlexColumn
 import androidx.ui.material.MaterialTheme
+import androidx.ui.material.TopAppBar
 import androidx.ui.text.TextStyle
 import androidx.ui.tooling.preview.Preview
 
@@ -23,7 +25,18 @@ class MainActivity : AppCompatActivity() {
 @Composable
 fun Greeting() {
     MaterialTheme {
-        RecipeList(defaultRecipes)
+        FlexColumn {
+            inflexible {
+                TopAppBar(
+                    title = {
+                        Text("ComposableCookBook")
+                    }
+                )
+            }
+            flexible(flex = 1f){
+                RecipeList(defaultRecipes)
+            }
+        }
     }
     /*
     Column {
